@@ -3,10 +3,16 @@ import { useState } from "react";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
+import Modal from "./Modal";
 
 function PostsList() {
+  const [modalIsVisible, setModalIsVisible] = useState(true);
   const [enteredAuthor, setEnteredAuthor] = useState();
   const [enteredBody, setEnteredBody] = useState();
+
+  function hideModalHandler() {
+    setModalIsVisible(false);
+  }
 
   function changeAuthorHandler(event) {
     setEnteredAuthor(event.target.value);
@@ -18,10 +24,15 @@ function PostsList() {
 
   return (
     <>
-      <NewPost
-        onAuthorChange={changeAuthorHandler}
-        onBodyChange={changeBodyHandler}
-      />
+      {modalIsVisible && (
+        <Modal onClose={hideModalHandler}>
+          <NewPost
+            onAuthorChange={changeAuthorHandler}
+            onBodyChange={changeBodyHandler}
+          />
+        </Modal>
+      )}
+
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Jenny" body="A cute writer with the bright mindset." />
