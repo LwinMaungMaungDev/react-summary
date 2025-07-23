@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "body": "I am the best at learning new things. Now, I am using that talent to grow my career.",
+      "author": "Li Fei",
+      "id": "0.6031751985965024"
+    },
+    {
       "author": "Lwin Maung Maung",
       "body": "I am learning to become a excellent software developer.",
       "id": "0.9315954756569407"
