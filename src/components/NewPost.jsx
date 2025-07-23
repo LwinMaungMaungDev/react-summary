@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import classes from "./NewPost.module.css";
 
-function NewPost({ onCancel }) {
+function NewPost({ onCancel, onAddPost }) {
   const [enteredAuthor, setEnteredAuthor] = useState();
   const [enteredBody, setEnteredBody] = useState();
 
@@ -20,7 +20,7 @@ function NewPost({ onCancel }) {
       author: enteredAuthor,
       body: enteredBody,
     };
-    //
+    onAddPost(postData);
     onCancel();
   }
 
